@@ -7,3 +7,5 @@ A collection of data structures and algorithms written in languages of my intere
 1. Better understand how a given data structure or algorithm is implemented
 
 2. For some data structures (i.e. queues & stacks) and algorithms (i.e. binary search, BFS, & DFS) I would want the implementation to feel like "second nature". Coding a data structure or algorithm will feel as "natural" as coding a `for loop`
+
+3. Testing code. Data structures and algorithms are an ideal "format" to practice testing code
