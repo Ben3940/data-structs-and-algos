@@ -1,5 +1,6 @@
 import unittest
 from Nodes.Node import Node
+from Nodes.PriorityNode import PriorityNode
 from Stack import Stack
 from Queue import Queue
 
@@ -19,6 +20,17 @@ class TestNode(unittest.TestCase):
         node = Node(0)
         self.node.set_next_node(node)
         self.assertEqual(self.node.get_next(), node)
+
+
+class TestPriorityNode(unittest.TestCase):
+    def setUp(self):
+        pass
+
+    def test_get_priority(self):
+        pass
+
+    def test_set_priority(self):
+        pass
 
 
 class TestStack(unittest.TestCase):
