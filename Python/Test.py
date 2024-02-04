@@ -1,5 +1,5 @@
 import unittest
-from Node import Node
+from Nodes.Node import Node
 from Stack import Stack
 from Queue import Queue
 
