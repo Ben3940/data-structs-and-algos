@@ -83,5 +83,13 @@ class TestQueue(unittest.TestCase):
         self.assertEqual(self.queue.peek(), 1)
 
 
+class TestPriorityQueue(unittest.TestCase):
+    def setUp(self):
+        pass
+
+    def test_enqueue(self):
+        pass
+
+
 if __name__ == "__main__":
     unittest.main()
