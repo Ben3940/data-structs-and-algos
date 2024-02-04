@@ -24,13 +24,14 @@ class TestNode(unittest.TestCase):
 
 class TestPriorityNode(unittest.TestCase):
     def setUp(self):
-        pass
+        self.p_node = PriorityNode(value=2, priority=4)
 
     def test_get_priority(self):
-        pass
+        self.assertEqual(self.p_node.get_priority(), 4)
 
     def test_set_priority(self):
-        pass
+        self.p_node.set_priority(1)
+        self.assertEqual(self.p_node.get_priority(), 1)
 
 
 class TestStack(unittest.TestCase):
