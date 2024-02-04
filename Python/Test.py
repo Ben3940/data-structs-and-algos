@@ -1,7 +1,9 @@
 import unittest
-from Node import Node
+from Nodes.Node import Node
+from Nodes.PriorityNode import PriorityNode
 from Stack import Stack
 from Queue import Queue
+from PriorityQueue import PriorityQueue
 
 
 class TestNode(unittest.TestCase):
@@ -19,6 +21,18 @@ class TestNode(unittest.TestCase):
         node = Node(0)
         self.node.set_next_node(node)
         self.assertEqual(self.node.get_next(), node)
+
+
+class TestPriorityNode(unittest.TestCase):
+    def setUp(self):
+        self.p_node = PriorityNode(value=2, priority=4)
+
+    def test_get_priority(self):
+        self.assertEqual(self.p_node.get_priority(), 4)
+
+    def test_set_priority(self):
+        self.p_node.set_priority(1)
+        self.assertEqual(self.p_node.get_priority(), 1)
 
 
 class TestStack(unittest.TestCase):
@@ -68,6 +82,35 @@ class TestQueue(unittest.TestCase):
         self.assertEqual(self.queue.peek(), None)
         self.queue.enqueue(1)
         self.assertEqual(self.queue.peek(), 1)
+
+
+class TestPriorityQueue(unittest.TestCase):
+    def setUp(self):
+        self.ARR = [
+            {"value": "A", "priority": 1},
+            {"value": "G", "priority": 7},
+            {"value": "C", "priority": 3},
+            {"value": "A", "priority": 1},
+            {"value": "E", "priority": 5},
+        ]
+        self.ASCD_answers = ["A", "A", "C", "E", "G"]
+        self.DESC_answers = ["G", "E", "C", "A", "A"]
+
+    def test_enqueue_ASCD(self):
+        p_queue = PriorityQueue(ASCD=True)
+        for pair in self.ARR:
+            p_queue.enqueue(pair["value"], pair["priority"])
+
+        for answer in self.ASCD_answers:
+            self.assertEqual(p_queue.deque(), answer)
+
+    def test_enqueue_DESC(self):
+        p_queue = PriorityQueue(ASCD=False)
+        for pair in self.ARR:
+            p_queue.enqueue(pair["value"], pair["priority"])
+
+        for answer in self.DESC_answers:
+            self.assertEqual(p_queue.deque(), answer)
 
 
 if __name__ == "__main__":
