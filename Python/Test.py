@@ -4,6 +4,7 @@ from Nodes.PriorityNode import PriorityNode
 from Stack import Stack
 from Queue import Queue
 from PriorityQueue import PriorityQueue
+from LinkedList import LinkedList
 
 
 class TestNode(unittest.TestCase):
@@ -111,6 +112,51 @@ class TestPriorityQueue(unittest.TestCase):
 
         for answer in self.DESC_answers:
             self.assertEqual(p_queue.deque(), answer)
+
+
+class TestLinkedList(unittest.TestCase):
+    def setUp(self):
+        self.LL = LinkedList()
+
+    def test_get(self):
+        self.assertEqual(self.LL.get(1), None)
+        self.assertEqual(self.LL.get(-2), None)
+        self.LL.push(4)
+        self.LL.push(10)
+        self.assertEqual(self.LL.get(0), 4)
+        self.assertEqual(self.LL.get(1), 10)
+
+    def test_set(self):
+        self.LL.set(2, 23)
+        self.assertEqual(self.LL.get(2), None)
+        self.LL.push(22)
+        self.LL.push(10)
+        self.LL.set(0, 14)
+        self.LL.set(1, 20)
+        self.assertEqual(self.LL.get(0), 14)
+        self.assertEqual(self.LL.get(1), 20)
+
+    def test_push(self):
+        self.LL.push(2)
+        self.LL.push(4)
+        self.LL.push(6)
+        self.assertEqual(self.LL.get(0), 2)
+        self.assertEqual(self.LL.get(1), 4)
+        self.assertEqual(self.LL.get(2), 6)
+
+    def test_pop(self):
+        self.LL.push(0)
+        self.LL.push(1)
+        self.LL.push(2)
+        self.assertEqual(self.LL.pop(), 0)
+        self.assertEqual(self.LL.pop(), 1)
+        self.assertEqual(self.LL.pop(), 2)
+
+    def test_size(self):
+        self.assertEqual(self.LL.size(), 0)
+        self.LL.push(0)
+        self.LL.push(1)
+        self.assertEqual(self.LL.size(), 2)
 
 
 if __name__ == "__main__":
