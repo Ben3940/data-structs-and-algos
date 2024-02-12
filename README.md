@@ -12,6 +12,7 @@ A collection of data structures and algorithms written in languages of my intere
 
 4. Implementing style guides for programming languages and getting exposure to various conventions. The style guides for each langauage are as follow:
 
-   - `Python`: PEP 8 (https://peps.python.org/pep-0008/)
-   - `C`: GNU C Coding Standard (https://www.gnu.org/prep/standards/html_node/Writing-C.html)
-     - GNU gives vague guidelines to certain aspects (i.e. file names) so Google's C++ style guide is used to supplement these areas (https://google.github.io/styleguide/cppguide.html)
+- `C`: GNU C Coding Standard (https://www.gnu.org/prep/standards/html_node/Writing-C.html)
+  - GNU gives vague guidelines to certain aspects (i.e. file names) so Google's C++ style guide is used to supplement these areas (https://google.github.io/styleguide/cppguide.html)
+- `JavaScript`: Google JavaScript Style Guide (https://google.github.io/styleguide/jsguide.html)
+- `Python`: PEP 8 (https://peps.python.org/pep-0008/)
