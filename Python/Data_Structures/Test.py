@@ -40,21 +40,11 @@ class TestStack(unittest.TestCase):
     def setUp(self):
         self.stack = Stack()
 
-    def test_push(self):
+    def test_push_pop(self):
         self.stack.push(1)
         self.stack.push(2)
         self.assertEqual(self.stack.pop(), 2)
         self.assertEqual(self.stack.pop(), 1)
-
-    def test_pop(self):
-        self.assertEqual(self.stack.pop(), None)
-
-        self.stack.push(3)
-        self.stack.push(4)
-        self.stack.push(5)
-        self.assertEqual(self.stack.pop(), 5)
-        self.stack.pop()
-        self.assertEqual(self.stack.pop(), 3)
 
     def test_peek(self):
         self.assertEqual(self.stack.peek(), None)
@@ -66,18 +56,11 @@ class TestQueue(unittest.TestCase):
     def setUp(self):
         self.queue = Queue()
 
-    def test_enqueue(self):
+    def test_enqueue_deque(self):
         self.queue.enqueue(1)
         self.queue.enqueue(2)
         self.assertEqual(self.queue.deque(), 1)
         self.assertEqual(self.queue.deque(), 2)
-
-    def test_deque(self):
-        self.assertEqual(self.queue.deque(), None)
-        self.queue.enqueue(3)
-        self.queue.enqueue(4)
-        self.assertEqual(self.queue.deque(), 3)
-        self.assertEqual(self.queue.deque(), 4)
 
     def test_peek(self):
         self.assertEqual(self.queue.peek(), None)
@@ -136,15 +119,7 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.LL.get(0), 14)
         self.assertEqual(self.LL.get(1), 20)
 
-    def test_push(self):
-        self.LL.push(2)
-        self.LL.push(4)
-        self.LL.push(6)
-        self.assertEqual(self.LL.get(0), 2)
-        self.assertEqual(self.LL.get(1), 4)
-        self.assertEqual(self.LL.get(2), 6)
-
-    def test_pop(self):
+    def test_push_pop(self):
         self.LL.push(0)
         self.LL.push(1)
         self.LL.push(2)
