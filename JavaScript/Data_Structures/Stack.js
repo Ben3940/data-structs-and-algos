@@ -14,12 +14,12 @@ export class Stack {
       this.tail = node;
       return;
     }
-    this.tail.setNextNode(node);
+    node.setNextNode(this.tail);
     this.tail = node;
   }
 
   pop() {
-    if (this.length <= 0) {
+    if (!this.tail) {
       return null;
     }
     this.length--;
@@ -29,6 +29,7 @@ export class Stack {
 
     if (this.length <= 0) {
       this.tail = null;
+      this.length = 0;
     }
     return value;
   }
