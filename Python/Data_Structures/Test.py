@@ -5,6 +5,7 @@ from Stack import Stack
 from Queue import Queue
 from PriorityQueue import PriorityQueue
 from LinkedList import LinkedList
+from Nodes.BinaryTreeNode import BinaryTreeNode
 
 
 class TestNode(unittest.TestCase):
@@ -99,39 +100,61 @@ class TestPriorityQueue(unittest.TestCase):
 
 class TestLinkedList(unittest.TestCase):
     def setUp(self):
-        self.LL = LinkedList()
+        self.linked_list = LinkedList()
 
     def test_get(self):
-        self.assertEqual(self.LL.get(1), None)
-        self.assertEqual(self.LL.get(-2), None)
-        self.LL.push(4)
-        self.LL.push(10)
-        self.assertEqual(self.LL.get(0), 4)
-        self.assertEqual(self.LL.get(1), 10)
+        self.assertEqual(self.linked_list.get(1), None)
+        self.assertEqual(self.linked_list.get(-2), None)
+        self.linked_list.push(4)
+        self.linked_list.push(10)
+        self.assertEqual(self.linked_list.get(0), 4)
+        self.assertEqual(self.linked_list.get(1), 10)
 
     def test_set(self):
-        self.LL.set(2, 23)
-        self.assertEqual(self.LL.get(2), None)
-        self.LL.push(22)
-        self.LL.push(10)
-        self.LL.set(0, 14)
-        self.LL.set(1, 20)
-        self.assertEqual(self.LL.get(0), 14)
-        self.assertEqual(self.LL.get(1), 20)
+        self.linked_list.set(2, 23)
+        self.assertEqual(self.linked_list.get(2), None)
+        self.linked_list.push(22)
+        self.linked_list.push(10)
+        self.linked_list.set(0, 14)
+        self.linked_list.set(1, 20)
+        self.assertEqual(self.linked_list.get(0), 14)
+        self.assertEqual(self.linked_list.get(1), 20)
 
     def test_push_pop(self):
-        self.LL.push(0)
-        self.LL.push(1)
-        self.LL.push(2)
-        self.assertEqual(self.LL.pop(), 0)
-        self.assertEqual(self.LL.pop(), 1)
-        self.assertEqual(self.LL.pop(), 2)
+        self.linked_list.push(0)
+        self.linked_list.push(1)
+        self.linked_list.push(2)
+        self.assertEqual(self.linked_list.pop(), 0)
+        self.assertEqual(self.linked_list.pop(), 1)
+        self.assertEqual(self.linked_list.pop(), 2)
 
     def test_size(self):
-        self.assertEqual(self.LL.size(), 0)
-        self.LL.push(0)
-        self.LL.push(1)
-        self.assertEqual(self.LL.size(), 2)
+        self.assertEqual(self.linked_list.size(), 0)
+        self.linked_list.push(0)
+        self.linked_list.push(1)
+        self.assertEqual(self.linked_list.size(), 2)
+
+
+class TestBinaryTreeNode(unittest.TestCase):
+    def setUp(self):
+        self.tree_node = BinaryTreeNode(1)
+
+    def test_get_set_value(self):
+        self.assertEqual(self.tree_node.get_value(), 1)
+        self.tree_node.set_value(2)
+        self.assertEqual(self.tree_node.get_value(), 2)
+
+    def test_get_set_left(self):
+        self.assertEqual(self.tree_node.get_left(), None)
+        tree_node_2 = BinaryTreeNode(3)
+        self.tree_node.set_left(tree_node_2)
+        self.assertEqual(self.tree_node.get_left().get_value(), 3)
+
+    def test_get_set_right(self):
+        self.assertEqual(self.tree_node.get_right(), None)
+        tree_node_2 = BinaryTreeNode(5)
+        self.tree_node.set_right(tree_node_2)
+        self.assertEqual(self.tree_node.get_right().get_value(), 5)
 
 
 if __name__ == "__main__":
