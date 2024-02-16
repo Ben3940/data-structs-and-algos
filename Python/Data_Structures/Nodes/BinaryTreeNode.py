@@ -1,5 +1,6 @@
 class BinaryTreeNode:
-    def __init__(self, value):
+    def __init__(self, value, key):
+        self.key = key
         self.value = value
         self.left = self.right = None
 
@@ -8,6 +9,12 @@ class BinaryTreeNode:
 
     def set_value(self, value):
         self.value = value
+
+    def get_key(self):
+        return self.key
+
+    def set_key(self, key):
+        self.key = key
 
     def get_left(self):
         return self.left

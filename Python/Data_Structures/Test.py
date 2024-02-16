@@ -137,22 +137,27 @@ class TestLinkedList(unittest.TestCase):
 
 class TestBinaryTreeNode(unittest.TestCase):
     def setUp(self):
-        self.tree_node = BinaryTreeNode(1)
+        self.tree_node = BinaryTreeNode(1, "A")
 
     def test_get_set_value(self):
         self.assertEqual(self.tree_node.get_value(), 1)
         self.tree_node.set_value(2)
         self.assertEqual(self.tree_node.get_value(), 2)
 
+    def test_get_set_key(self):
+        self.assertEqual(self.tree_node.get_key(), "A")
+        self.tree_node.set_key("C")
+        self.assertEqual(self.tree_node.get_key(), "C")
+
     def test_get_set_left(self):
         self.assertEqual(self.tree_node.get_left(), None)
-        tree_node_2 = BinaryTreeNode(3)
+        tree_node_2 = BinaryTreeNode(3, "G")
         self.tree_node.set_left(tree_node_2)
         self.assertEqual(self.tree_node.get_left().get_value(), 3)
 
     def test_get_set_right(self):
         self.assertEqual(self.tree_node.get_right(), None)
-        tree_node_2 = BinaryTreeNode(5)
+        tree_node_2 = BinaryTreeNode(5, "I")
         self.tree_node.set_right(tree_node_2)
         self.assertEqual(self.tree_node.get_right().get_value(), 5)
 
