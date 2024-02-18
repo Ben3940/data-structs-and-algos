@@ -149,6 +149,12 @@ class TestBinaryTreeNode(unittest.TestCase):
         self.tree_node.set_key("C")
         self.assertEqual(self.tree_node.get_key(), "C")
 
+    def test_get_set_parent(self):
+        self.assertEqual(self.tree_node.get_parent(), None)
+        node = BinaryTreeNode(2, "J")
+        self.tree_node.set_parent(node)
+        self.assertEqual(self.tree_node.get_parent(), node)
+
     def test_get_set_left(self):
         self.assertEqual(self.tree_node.get_left(), None)
         tree_node_2 = BinaryTreeNode(3, "G")
