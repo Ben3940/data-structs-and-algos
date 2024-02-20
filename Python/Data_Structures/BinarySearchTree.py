@@ -6,12 +6,12 @@ class BinarySearchTree:
     def __init__(self, root=None):
         self.root = root
 
-    # Wrapper to simplify recursive calling of find_value_recursive
-    def find_node(self, value):
+    # Wrapper to simplify recursive calling of find_node_recursive
+    def find_node(self, key):
         # Checks if root is null once, instead of every recursive call
         if not self.root:
             return None
-        return self.find_node_recursive(self.root, value)
+        return self.find_node_recursive(self.root, key)
 
     def find_node_recursive(self, node, key):
         # Found node with target key
@@ -59,7 +59,11 @@ class BinarySearchTree:
     def remove_tree_key(self, key):
         if not self.root:
             return None
-        self.remove_key(self.root, key)
+        node = self.find_node(key)
+        if not node:
+            return None
+
+        self.remove_key(node, key)
 
     def remove_key(self, node, key):
         parent = node.get_parent()
@@ -162,10 +166,12 @@ BST.add_tree_node("B", "B")
 BST.add_tree_node("D", "D")
 BST.add_tree_node("A", "A")
 BST.add_tree_node("E", "E")
-
+BST.traverse()
+BST.remove_tree_key("D")
+print("\n")
+BST.traverse()
 # print(BST.find_node("A").get_value())
 
 # BST.remove_tree_key("B")
 
 # print(BST.find_node("A").get_value())
-BST.traverse(False)
