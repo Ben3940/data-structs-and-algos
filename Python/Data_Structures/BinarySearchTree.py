@@ -128,9 +128,12 @@ class BinarySearchTree:
         if node.get_right():
             node.get_right().set_parent(successor)
 
-    def traverse_DFS(self):
+    def traverse(self, Depth_first=True):
         node = self.root
-        self.DFS(node)
+        if Depth_first:
+            self.DFS(node)
+        else:
+            self.BFS([node])
 
     def DFS(self, node):
         if not node:
@@ -139,11 +142,24 @@ class BinarySearchTree:
         self.DFS(node.get_right())
         print(node.get_value())
 
+    def BFS(self, queue):
+        if len(queue) == 0:
+            return
+        node = queue.pop(0)
+        print(node.get_value())
+        left_child = node.get_left()
+        right_child = node.get_right()
+        if left_child:
+            queue.append(left_child)
+        if right_child:
+            queue.append(right_child)
+        self.BFS(queue)
+
 
 BST = BinarySearchTree()
 BST.add_tree_node("C", "C")
-BST.add_tree_node("D", "D")
 BST.add_tree_node("B", "B")
+BST.add_tree_node("D", "D")
 BST.add_tree_node("A", "A")
 BST.add_tree_node("E", "E")
 
@@ -152,4 +168,4 @@ BST.add_tree_node("E", "E")
 # BST.remove_tree_key("B")
 
 # print(BST.find_node("A").get_value())
-BST.traverse_DFS()
+BST.traverse(False)
